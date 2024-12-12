@@ -10,7 +10,7 @@
 
 ### Participate
 
--   https://github.com/explainers-by-googlers/related-website-partition-api
+-   https://github.com/explainers-by-googlers/related-website-partition-api/issues/
 
 ## Motivation
 
@@ -132,7 +132,7 @@ This field does not exempt sites from the `Permissions-Policy` or `allow` attrib
 
 Below is an example of how a JSON entry with this new field may look:
 
-```json
+```javascript
 {
    "sets": [
       {
