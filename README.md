@@ -71,7 +71,7 @@ The handle would have access to the embed's partition when the RWS primary site 
 Below is an example of code that accesses the handle, `support.chat` could choose to use this API to store a session ID in LocalStorage on `setmember1.com`:
 
 ```javascript
-// Executed on <iframe> embedded in setmember1.com
+// Executed on support.chat's <iframe> embedded in setmember1.com
 
 const handle = await document.requestRelatedWebsitePartition({localStorage: true});
 
@@ -83,7 +83,7 @@ handle.localStorage.set('sessionId', id);
 Then when the user is directed to visit `sitemember2.com`, `support.chat` can access that shared session ID:
 
 ```javascript
-// Executed on <iframe> embedded in setmember2.com
+// Executed on support.chat's <iframe> embedded in setmember2.com
 
 const handle = await document.requestRelatedWebsitePartition({localStorage: true});
 
