@@ -124,7 +124,7 @@ The default [allowlist](https://developer.mozilla.org/en-US/docs/Web/HTTP/Permis
 
 ### RWS sites must opt in with their JSON
 
-RWS owners will be required to list sites allowed to use this API explicitly [in the RWS JSON file](https://github.com/GoogleChrome/related-website-sets/blob/main/related_website_sets.JSON) and the [`.well-known` file](https://github.com/GoogleChrome/related-website-sets/blob/main/Well-Known-Specification.md) in a new `relatedWebsitePartitionEnabled` boolean field.
+RWS owners will be required to explicitly enable use of this API within their set [in the RWS JSON file](https://github.com/GoogleChrome/related-website-sets/blob/main/related_website_sets.JSON) and the [`.well-known` file](https://github.com/GoogleChrome/related-website-sets/blob/main/Well-Known-Specification.md) file in a new `relatedWebsitePartitionEnabled` boolean field.
 Setting this value to `true` will allow embeds to use `requestRelatedWebsitePartition` in that set.
 
 Even when this field is set, embeds will still need to use the Storage Access API with a prompt in order to access their unpartitioned state.
