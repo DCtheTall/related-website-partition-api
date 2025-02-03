@@ -12,14 +12,16 @@ This information is normally available in the public [RWS JSON file](https://git
 There are some cases, such as when browsers are managed by an enterprise policy that uses a [custom list](https://chromeenterprise.google/policies/#RelatedWebsiteSetsOverrides), that this API would expose RWS membership to third parties embedded on those sites.
 Third parties would only have access to this information if the top-level site allows them via a Permissions Policy.
 
-This API also gives third parties access to a storage partition that is shared across sites in the particular RWS.
+The primary purpose of the RWP API is to give third parties access to a storage partition that is shared across sites under the privacy boundary of the RWS.
 This storage partition does not contain any data that the third party does not put there themselves.
 This storage partition would be available when RWS is enabled even if the browser has third-party cookie restrictions enabled.
 
 ### 2.2. Do features in your specification expose the minimum amount of information necessary to implement the intended functionality?
 
 Yes.
-All of the information this API exposes to first and third parties are necessary for the feature's intended functionality and do not reveal any more.
+All of the information the RWP API exposes to first and third parties are necessary for the feature's intended functionality and do not reveal any more.
+The RWP API provides a general-purpose storage partition which we cannot restrict.
+This storage partition is only available under a single RWS, which limits the exposure of the information stored in the partition.
 
 ### 2.3. Do the features in your specification expose personal information, personally-identifiable information (PII), or information derived from either?
 
@@ -37,7 +39,8 @@ No, it does not.
 ### 2.6. Do the features in your specification introduce state that persists across browsing sessions?
 
 Yes, this feature gives third parties embedded in a site in an RWS access to a storage partition that is available across different browsing sessions.
-This storage partition should be cleared when a user wishes to clear storage for that origin.
+This storage partition should be cleared when a user wishes to clear storage for the storage origin.
+User agents should also clear this storage if the user is able to delete data for all sites in the RWS.
 
 ### 2.7. Do the features in your specification expose information about the underlying platform to origins?
 
@@ -88,7 +91,7 @@ No, this feature does not provide any capability to opt out of any security prot
 ### 2.18. What happens when a document that uses your feature is kept alive in BFCache (instead of getting destroyed) after navigation, and potentially gets reused on future navigations back to the document?
 
 This feature gives third parties access to a persistent storage partition for use within an RWS.
-The storage partition will be available to the document before and after navigation, but the document will have to invoke the RWP API again to access it.
+The storage partition will be available to the document after navigation, but the document will have to invoke the RWP API again to access it.
 
 ### 2.19. What happens when a document that uses your feature gets disconnected?
 
